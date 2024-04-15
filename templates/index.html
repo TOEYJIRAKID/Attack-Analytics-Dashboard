@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-Time Chart with Flask and Elasticsearch</title>
+    <!-- Include ApexCharts library -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  </head>
+  <body>
+    <h1>Logstash 2024/04/07</h1>
+    <!-- This is where the bar chart will be rendered -->
+    <div id="barChart"></div>
+
+    <!-- This is where the pie chart will be rendered -->
+    <div id="pieChart"></div>
+
+    <script>
+      // Function to fetch real-time data from Flask endpoint for bar chart
+      function fetchBarChartData() {
+        fetch("/data")
+          .then((response) => response.json())
+          .then((data) => {
+            // Update bar chart with new data
+            barChart.updateSeries([{ data: data }]);
+            console.log(data);
+          });
+      }
+
+      // Function to fetch real-time data from Flask endpoint for pie chart
+      function fetchPieChartData() {
+        fetch("/data/pie")
+          .then((response) => response.json())
+          .then((data) => {
+            // Prepare data for pie chart
+            var pieSeries = Object.values(data);
+            var pieLabels = Object.keys(data); // Use source IP addresses as labels
+            var total = pieSeries.reduce((acc, val) => acc + val, 0); // Calculate total sum
+            // Update pie chart with new data
+            pieChart.updateSeries(pieSeries);
+            pieChart.updateOptions({ labels: pieLabels }); // Update labels
+            pieChart.updateOptions({
+              title: { text: `Source IP Counts (Total: ${total})` },
+            }); // Update chart title
+            console.log(pieSeries);
+          });
+      }
+
+      // Initialize or provide initial data for bar chart
+      var barData = [];
+      var barChart = new ApexCharts(document.querySelector("#barChart"), {
+        series: [{ name: "Log", data: barData }],
+        chart: {
+          type: "bar",
+          height: 350,
+          animations: {
+            enabled: true,
+            easing: "linear",
+            dynamicAnimation: { speed: 1000 },
+          },
+        },
+        xaxis: {
+          type: "datetime",
+          title: {
+            text: "Timestamp",
+          },
+          labels: {
+            show: true,
+          },
+        },
+        yaxis: {
+          type: "category",
+          title: {
+            text: "Log",
+          },
+          labels: {
+            show: true,
+          },
+        },
+        title: {
+          text: "Real-Time Chart with Flask and Elasticsearch",
+          align: "left",
+        },
+        markers: { size: 0 },
+      });
+      barChart.render();
+
+      // Initialize or provide initial data for pie chart
+      var pieData = [];
+      var pieChart = new ApexCharts(document.querySelector("#pieChart"), {
+        series: [],
+        chart: {
+          type: "pie",
+          height: 350,
+        },
+        title: {
+          text: "Source IP Counts",
+          align: "center",
+        },
+        labels: [],
+        responsive: [
+          {
+            breakpoint: 480,
+            options: {
+              chart: {
+                width: 200,
+              },
+              legend: {
+                position: "bottom",
+              },
+            },
+          },
+        ],
+      });
+      pieChart.render();
+
+      // Fetch new data every 5 seconds for bar chart
+      setInterval(fetchBarChartData, 5000);
+
+      // Fetch new data every 5 seconds for pie chart
+      setInterval(fetchPieChartData, 5000);
+    </script>
+  </body>
+</html>
