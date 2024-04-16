@@ -2,7 +2,7 @@
 ## Link to Youtube
 - [Checkpoint การตรวจจับการโจมตีแบบ Ping of Death](https://youtu.be/EsbcEBuK2VM?si=Rqb6msG--CljFPuH) 
 - [กราฟแสดงผลการตรวจจับการโจมตีแบบ Ping of Death](https://youtu.be/XtfHHdDzDQg?si=gDIAk-F0Fj2KKrv7)
-## สมาชิกในกลุ่ม
+## สมาชิก
 - 64102122 จิรภัทร จิตรภักดี
 - 64102080 จิรกิตติ์ เอียดเหตุ 
 - 64104532 ณัฐนันท์ ทองมาก
