@@ -27,7 +27,7 @@ Ping of Death Attack Analytics Dashboard is a powerful tool that visualizes and 
 
 - **Real-Time Attack Detection** – Instantly detect and log Ping of Death (PoD) attacks on the network.
 - **Interactive Dashboard** – Visualize attack trends, sources, and frequency with graphical charts.
-- **IP & Port Tracking** – Monitor attack origins, destination IPs, and port numbers in real-time.
+- **IP Tracking** – Monitor attack origins, destination IPs, and port numbers in real-time.
 
 ## 📂 **GitHub Repository (Source Code)** :
 
