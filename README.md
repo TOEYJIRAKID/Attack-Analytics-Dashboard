@@ -4,9 +4,9 @@
 
 PoD Attack Analytics – Ping of Death Attack Analytics Dashboard
 
-## 📌 **Project Overview** :
+## 📌 **Project Overview** :  
 
-Ping of Death Attack Analytics Dashboard is a powerful tool that visualizes and tracks Ping of Death (PoD) attacks on your network. This dashboard provides in-depth analysis and real-time insights into the nature of these attacks, helping you to stay ahead of malicious activities and protect your infrastructure.
+Ping of Death Attack Analytics Dashboard is a web application designed to log and display information about Ping of Death (PoD) attacks on a network. This application helps users monitor basic details of potentially malicious packets and presents the data in an easy-to-understand format.
 
 ## 🙏 **Project Overview** :
 - 64102122 จิรภัทร จิตรภักดี
@@ -18,16 +18,15 @@ Ping of Death Attack Analytics Dashboard is a powerful tool that visualizes and 
 
 ## 🎯 **Objective** :
 
-- Develop a monitoring system for detecting and analyzing Ping of Death (PoD) attacks.  
-- Provide a real-time dashboard for visualizing attack patterns and network anomalies.  
-- Enhance cybersecurity awareness and response by logging PoD attacks efficiently.  
-- Implement a structured database for storing attack details and historical trends.  
+- Develop a system to log packet data related to PoD attacks.
+- Display basic packet information such as source IP, destination IP, and protocol.
+- Create a dashboard that helps users analyze trends of abnormal packets.
 
 ## ✨ **Key Features** :
 
-- **Real-Time Attack Detection** – Instantly detect and log Ping of Death (PoD) attacks on the network.
-- **Interactive Dashboard** – Visualize attack trends, sources, and frequency with graphical charts.
-- **IP Tracking** – Monitor attack origins, destination IPs, and port numbers in real-time.
+- **Basic Packet Logging** – Records packet data that may be associated with Ping of Death attacks.
+- **Simple Data Visualization** – Displays data in tables or basic graphs.
+- **Minimalistic Dashboard** – A simple interface for reviewing basic attack data.
 
 ## 📂 **GitHub Repository (Source Code)** :
 
